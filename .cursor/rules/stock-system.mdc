@@ -1,0 +1,30 @@
+---
+description: 个人股票投资系统统一工作流（研究/执行/记录）
+alwaysApply: true
+---
+
+# stock-system 工作流约定
+
+本项目为「无 API 盈立手动版」个人股票投资系统。每个会话默认加载并遵循
+`stock-system/skills/` 下的三个 Skill：
+
+- **13master-stock-research**：所有股票研究走 13-Master 四步框架。
+- **usmart-trading-playbook**：所有执行（建仓/网格/出 TP）走盈立挂单清单，
+  禁止调用 `place_bracket.py` 等 IBKR 脚本；`ibkr-strategies-reference` 仅作策略数学只读参考。
+- **trading-journal**：所有成交/复盘/纠错走交易日志，写入 `data/trade_journal.db` 与 `journal/`。
+
+## 核心纪律（全程有效）
+
+1. **三源验价**：Web A + Web B + 盈立截图/报现价；缺第三源不出带美元价格的挂单清单。
+2. **事前定规则**：进场、仓位、止损、止盈档位入场前写死。
+3. **确认才执行**：出清单 → 用户确认 → 盈立手挂 GTC；用户「确认」≠ 已下单。
+4. **fill 必记录**：成交后 30 分钟内回报，写入 SQLite + Markdown。
+5. **规则人工合并**：复盘教训写入 `journal/lessons/`，人工审核后才进 Skill；
+   禁止自动修改止损比例、仓位上限、策略 multiplier。
+
+## 路径约定（Windows + PowerShell）
+
+- 数据库：`data/trade_journal.db`（先 `python scripts/init_db.py`）
+- 日志 Markdown：`journal/{research,approvals,fills,reviews,lessons}/`
+- 配置：`config/holdings.yaml`、`config/categories.yaml`
+- 运行脚本前激活虚拟环境：`.\.venv\Scripts\Activate.ps1`

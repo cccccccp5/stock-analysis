@@ -1,0 +1,38 @@
+# 复制为 categories.yaml
+# 策略名与 ibkr-strategies-reference/references/strategies.md 一致
+
+categories:
+  high_growth:
+    default_strategy: B_50_100_200_equal
+    description: 大盘成长
+
+  high_growth_small_cap:
+    default_strategy: B7_step35_前重_50_30_20
+    description: 高波小盘/事件驱动
+
+  crypto_stock:
+    default_strategy: B7_step35_前重_50_30_20
+    description: 加密相关股票
+
+  semi_equipment:
+    default_strategy: B_50_100_200_equal
+    description: 半导体设备
+
+  semi_single_stock:
+    default_strategy: B_50_100_200_equal
+    description: 半导体单票
+
+  ipo_crypto:
+    default_strategy: B2_20_40_80_保守
+    description: 新 IPO / 高不确定
+
+  semi_etf:
+    default_strategy: E_buy_hold
+    description: 半导体 ETF
+
+  grid_candidate:
+    default_strategy: G_grid_accumulate
+    description: 高波长期看多攒底
+
+ticker_overrides: {}
+# 示例: IREN: { category: grid_candidate, vol_tier: ultra_high }

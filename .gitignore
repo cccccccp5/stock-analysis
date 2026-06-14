@@ -1,0 +1,10 @@
+data/trade_journal.db
+data/*.db-journal
+config/feishu.yaml
+config/holdings.yaml
+config/secrets.*
+hermes/config.yaml
+__pycache__/
+*.pyc
+.venv/
+.env

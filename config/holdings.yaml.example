@@ -1,0 +1,24 @@
+# 复制为 holdings.yaml 并填写真实数据
+
+core_positions: []
+# 示例:
+# - ticker: MU
+#   qty: 500
+#   avg_cost: 95.20
+#   strategy: B_50_100_200_equal
+#   vol_tier: high
+#   market: US
+
+watchlist: []
+# 示例:
+# - ticker: IREN
+#   trigger: "55-58"
+#   tier: 等回调
+#   theme: AI_infra
+#   market: US
+
+preferences:
+  default_broker: usmart
+  price_source_c: manual_screenshot   # 无 API：盈立截图或用户报价
+  confirm_before_trade: true
+  language: zh-CN
